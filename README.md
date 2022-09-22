@@ -1,0 +1,2 @@
+# django-tuts
+Django tutorial
