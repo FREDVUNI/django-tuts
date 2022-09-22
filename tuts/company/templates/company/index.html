@@ -1,0 +1,9 @@
+{% if company %}
+    {% for c in company %}
+        <h1>{{ c.company }}</h1>
+        
+        <p><a href="{% url 'company:details' %}/details">{{ c.location }}</a></p>
+    {% endfor %}
+{% else %}
+    <p>There no available companies.</p>
+{% endif %}

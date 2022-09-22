@@ -1,0 +1,33 @@
+{% extends 'todo/base.html' %}
+{% block content %}
+    <div class="container">
+        <div class="row mt-4">
+                <div class="col">
+                    <h2>Add Item</h2>
+                    <form action="add" method="POST">
+                        {% csrf_token %}
+                        <input type="text" class="form-control mb-2 mr-sm-2" name="text" placeholder="Enter Item.">
+                        <button type="submit" class="btn btn-outline-success">Add Item</button>
+                    </form>
+                </div>
+            </div>
+        <div class="row mt-4">
+            <div class="col mt-5">
+                <ul class="list-group">
+                    {% for i in item  %}
+                    <li class="list-group-item">{{ i.text }}
+                    <div class="float-right">
+                        <form action="delete_item/{{ i.id }}" method="post">
+                            {% csrf_token %}
+                            <button type="submit" class="btn btn-danger btn-xs">Delete</button>
+                        </form>
+                    </div>
+                    </li>
+                    {% endfor %}
+                </ul>
+            </div>
+        </div>
+    </div>
+{% endblock content %}
+
+ 
